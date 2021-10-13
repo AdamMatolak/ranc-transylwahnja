@@ -1,0 +1,128 @@
+body {
+  display: grid;
+  grid-template-columns: calc(max-content + 10px) 1fr minmax(min-content, 200px);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header"
+    "nav main sidebar"
+    "footer footer footer";
+}
+
+body > header {
+  grid-area: header;
+}
+body > nav {
+  grid-area: nav;
+}
+body > main {
+  grid-area: main;
+  padding: 5px;
+  max-width: 1000px;
+}
+body > aside#right_panel {
+  grid-area: sidebar;
+}
+body > footer {
+  grid-area: footer;
+}
+
+main > article > section > .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* main > article > section > .gallery > figure > img {
+  border: 1px black solid;
+  width: 150px;
+  height: 150px;
+} */
+
+main > article > section > .gallery > figure {
+  border: 1px black solid;
+  text-align: center;
+  width: 175px;
+  height: 140px;
+  
+}
+
+body > header > #language_flags > ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  align-items: center;
+  gap: 10px;
+  padding-left: 0;
+}
+
+body > nav > #myLinks {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  main > article > section > .gallery > figure > img {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main > article > section > .gallery > figure > img {
+    border: none;
+    margin: auto;
+  }
+  main > article > section > .gallery > figure {
+    border: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+  }
+  main > article > section > .gallery > figure > figcaption{
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body > main {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body > #right_panel {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  #right_panel_responsive {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body > nav > .myLinks {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body > nav > .turn-off {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  body > header > #language_flags > ul > .hamburger-menu-icon {
+    display: none;
+  }
+}
+
+@media print {
+  body > nav {
+    display: none;
+  }
+  body > aside {
+    display: none;
+  }
+  body{
+    filter: grayscale(100%);
+  }
+}
